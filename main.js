@@ -1,6 +1,8 @@
 let arr = [];
+let str = "";
 
-function numberPush(x)
+
+function number(x)
 {
     if (!isNaN( arr[arr.length - 1] ) && arr.length != 0) // If it's a number
     {
@@ -8,22 +10,19 @@ function numberPush(x)
     }
     else
         arr.push(x);
+    str += x;
 }
 
-
-function number(num) 
+function sign(sign) 
 {
-    numberPush(num);
-}
-
-function plus() 
-{
-    arr.push("+");
+    arr.push(sign);
+    str += sign;
 }
 
 number(1);
 number(3);
-plus();
+sign("+");
 number(2);
 
 console.log(arr);
+console.log(str);
