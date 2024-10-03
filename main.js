@@ -12,7 +12,7 @@ function number(x)
         arr[arr.length - 1] = Number( arr[arr.length - 1] + String(x) );
     }
     else
-        arr.push(x);
+        arr.push(Number(x));
     str += x;
 
     updateBar();
@@ -26,4 +26,37 @@ function sign(sign)
 {
     arr.push(sign);
     str += sign;
+    
+    updateBar();
+}
+
+function calculate()
+{
+    let calc = 0;
+    let error = false;
+
+    if (!isNaN(arr[0]))
+    {
+        calc = arr[0];
+    }
+    else
+        error = true;
+
+
+    for (let i = 1; i < arr.length; i++)
+    {
+        if (error === true)
+            return "Error";
+                
+        if (arr[i] === "+" && !isNaN(arr[i + 1])) 
+        {
+            calc += arr[i + 1];
+            i++;
+        }
+    }
+
+    arr = [calc];
+    str = String(calc);
+    updateBar();
+    console.log(calc);
 }
