@@ -59,4 +59,24 @@ function calculate()
     str = String(calc);
     updateBar();
     console.log(calc);
+
+    updateBar();
 }
+
+function clearBar() {
+  arr = [];
+  str = '';
+  updateBar();
+}
+
+function clearLast() {
+  console.log(arr.pop());
+  arr.pop();
+  str = arr;
+  updateBar();
+}
+
+function clearType() {
+
+}
+
