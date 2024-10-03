@@ -26,4 +26,24 @@ function sign(sign)
 {
     arr.push(sign);
     str += sign;
+
+    updateBar();
 }
+
+function clearBar() {
+  arr = [];
+  str = '';
+  updateBar();
+}
+
+function clearLast() {
+  console.log(arr.pop());
+  arr.pop();
+  str = arr;
+  updateBar();
+}
+
+function clearType() {
+
+}
+
