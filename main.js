@@ -70,6 +70,11 @@ function calculate()
                 i++;
                 calc /= arr[i];
             }
+            else if (arr[i] === ".")
+            {
+                i++;
+                calc += Number("0." + arr[i]);
+            }
         }
     }
 
