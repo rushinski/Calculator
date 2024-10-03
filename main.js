@@ -26,6 +26,62 @@ function sign(sign)
 {
     arr.push(sign);
     str += sign;
+    
+    updateBar();
+}
+
+function calculate()
+{
+    let calc = 0;
+    let error = false;
+
+    if (!isNaN(arr[0]))
+    {
+        calc = arr[0];
+    }
+    else
+        error = true;
+
+
+    for (let i = 1; i < arr.length; i++)
+    {
+        if (error === true)
+            return "Error";
+
+        if (!isNaN(arr[i + 1]))        
+        {
+            if (arr[i] === "+") 
+            {
+                i++;
+                calc += arr[i];
+            }
+            else if (arr[i] === "-")
+            {
+                i++;
+                calc -= arr[i];
+            }
+            else if (arr[i] === "x")
+            {
+                i++;
+                calc *= arr[i]
+            }
+            else if (arr[i] === "÷")
+            {
+                i++;
+                calc /= arr[i];
+            }
+            else if (arr[i] === ".")
+            {
+                i++;
+                calc += Number("0." + arr[i]);
+            }
+        }
+    }
+
+    arr = [calc];
+    str = String(calc);
+    updateBar();
+    console.log(calc);
 
     updateBar();
 }
