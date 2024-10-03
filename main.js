@@ -1,6 +1,9 @@
 let arr = [];
 let str = "";
-
+// Inseration into bar
+let BAR = document.body.getElementsByClassName('bar')[0];
+let ele = document.createElement('p');
+BAR.appendChild(ele);
 
 function number(x)
 {
@@ -11,6 +14,12 @@ function number(x)
     else
         arr.push(x);
     str += x;
+
+    updateBar();
+}
+
+function updateBar() {
+  ele.innerHTML = str;
 }
 
 function sign(sign) 
@@ -18,11 +27,3 @@ function sign(sign)
     arr.push(sign);
     str += sign;
 }
-
-number(1);
-number(3);
-sign("+");
-number(2);
-
-console.log(arr);
-console.log(str);
