@@ -1,4 +1,13 @@
 let arr = [];
+let str = "";
+
+function getString()
+{
+    for (let e of arr)
+    {
+
+    }
+}
 
 function numberPush(x)
 {
@@ -16,14 +25,14 @@ function number(num)
     numberPush(num);
 }
 
-function plus() 
+function sign(sign) 
 {
-    arr.push("+");
+    arr.push(sign);
 }
 
 number(1);
 number(3);
-plus();
+sign("+");
 number(2);
 
 console.log(arr);
