@@ -37,19 +37,10 @@ function clearBar() {
 }
 
 function clearLast() {
-  console.log(arr.pop());
-  arr.pop();
-  str = arr;
+  arr = arr.slice(0, -1);
+  str = str.slice(0, -1);
   updateBar();
 }
-
-function clearType() {
-
-}
-
-    
-    updateBar();
-
 
 function calculate()
 {
