@@ -47,11 +47,29 @@ function calculate()
     {
         if (error === true)
             return "Error";
-                
-        if (arr[i] === "+" && !isNaN(arr[i + 1])) 
+
+        if (!isNaN(arr[i + 1]))        
         {
-            calc += arr[i + 1];
-            i++;
+            if (arr[i] === "+") 
+            {
+                i++;
+                calc += arr[i];
+            }
+            else if (arr[i] === "-")
+            {
+                i++;
+                calc -= arr[i];
+            }
+            else if (arr[i] === "x")
+            {
+                i++;
+                calc *= arr[i]
+            }
+            else if (arr[i] === "÷")
+            {
+                i++;
+                calc /= arr[i];
+            }
         }
     }
 
