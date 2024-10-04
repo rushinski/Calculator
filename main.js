@@ -35,6 +35,19 @@ function calculate()
     let calc = 0;
     let error = false;
 
+    for (let index in arr)
+    {
+        index = Number(index);
+        console.log(arr);
+        console.log(index+1);
+        if (arr[index] === "√")
+        {
+            arr[index+1] = Math.sqrt(arr[index+1]);
+            arr.splice(index, 1);
+            console.log(arr);
+        }
+    }
+    
     if (!isNaN(arr[0]))
     {
         calc = arr[0];
@@ -42,14 +55,18 @@ function calculate()
     else
         error = true;
 
-
     for (let i = 1; i < arr.length; i++)
     {
-        if (error === true)
-            return "Error";
-
-        if (!isNaN(arr[i + 1]))        
+        if (error)
         {
+            str = "Error";
+            arr = [];
+            updateBar();
+            break;
+        }
+
+        if (!isNaN(arr[i + 1]))
+        {   
             if (arr[i] === "+") 
             {
                 i++;
@@ -77,10 +94,9 @@ function calculate()
             }
         }
     }
-
+    
     arr = [calc];
     str = String(calc);
-    updateBar();
     console.log(calc);
 
     updateBar();
