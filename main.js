@@ -37,6 +37,9 @@ function calculate() {
     if (arr[index] === "√") {
       arr[index + 1] = Math.sqrt(arr[index + 1]);
       arr.splice(index, 1);
+    } else if (arr[index] === "-" && (index === 0 || isNaN(arr[index-1]))) {
+      arr[index + 1] *= -1;
+      arr.splice(index, 1); 
     } else if (!isNaN(arr[index]) && arr[index + 1] === "%") {
       arr[index] /= 100;
       arr.splice(index + 1, 1);
