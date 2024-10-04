@@ -46,6 +46,12 @@ function calculate()
             arr.splice(index, 1);
             console.log(arr);
         }
+        else if (!isNaN(arr[index]) && arr[index+1] === "%")
+        {
+            arr[index] /= 100;
+            arr.splice(index+1, 1);
+            console.log(arr);
+        }
     }
     
     if (!isNaN(arr[0]))
@@ -95,6 +101,7 @@ function calculate()
         }
     }
     
+    console.log(arr);
     arr = [calc];
     str = String(calc);
     console.log(calc);
