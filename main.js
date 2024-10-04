@@ -11,6 +11,7 @@ function number(x) {
     arr[arr.length - 1] = Number(arr[arr.length - 1] + String(x));
   } else arr.push(Number(x));
   str += x;
+  console.log(arr);
 
   updateBar();
 }
@@ -39,6 +40,9 @@ function calculate() {
     } else if (!isNaN(arr[index]) && arr[index + 1] === "%") {
       arr[index] /= 100;
       arr.splice(index + 1, 1);
+    } else if (!isNaN(arr[index]) && arr[index + 1] === "x²") {
+        arr[index] = arr[index] * arr[index];
+        arr.splice(index + 1, 1);
     }
   }
 
@@ -76,8 +80,6 @@ function calculate() {
 
   arr = [calc];
   str = String(calc);
-  console.log(calc);
-
   updateBar();
 }
 
@@ -88,7 +90,8 @@ function clearBar() {
 }
 
 function clearLast() {
-  arr = arr.slice(0, -1);
   str = str.slice(0, -1);
+  arr = [];
+  arr.push(Number(str));
   updateBar();
 }
