@@ -1,0 +1,16 @@
+.row {
+  display: flex;
+  list-style: none;
+}
+button {
+  height: 40px;
+  width: 40px;
+  margin-right: 5px;
+}
+.bar {
+  display: flex;
+  list-style: none;
+  border: 2px solid black;
+  width: 217px;
+  height: 40px;
+}
