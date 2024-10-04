@@ -31,44 +31,31 @@ function calculate() {
   let calc = 0;
   let error = false;
 
-    for (let index in arr)
-    {
-        index = Number(index);
+  for (let index in arr) {
+    index = Number(index);
 
-        if (arr[index] === "√")
-        {
-            arr[index+1] = Math.sqrt(arr[index+1]);
-            arr.splice(index, 1);
-        }
-        else if (!isNaN(arr[index]) && arr[index+1] === "%")
-        {
-            arr[index] /= 100;
-            arr.splice(index+1, 1);
-        }
+    if (arr[index] === "√") {
+      arr[index + 1] = Math.sqrt(arr[index + 1]);
+      arr.splice(index, 1);
+    } else if (!isNaN(arr[index]) && arr[index + 1] === "%") {
+      arr[index] /= 100;
+      arr.splice(index + 1, 1);
+    } else if (!isNaN(arr[index]) && arr[index + 1] === "x²") {
+        arr[index] = arr[index] * arr[index];
+        arr.splice(index + 1, 1);
     }
-    
-    if (!isNaN(arr[0]))
-    {
-        calc = arr[0];
-    }
-    else
-        error = true;
+  }
 
-    for (let i = 1; i < arr.length; i++)
-    {
-        if (error)
-        {
-            str = "Error";
-            arr = [];
-            updateBar();
-            break;
-        }
+  if (!isNaN(arr[0])) {
+    calc = arr[0];
+  } else error = true;
 
-    if (isNaN(arr[i])) {
-        if (!isNaN(arr[i] == "x²")) {
-            let loc = arr.indexOf("x²") - 1;
-            calc = arr[loc] * arr[loc];
-        }
+  for (let i = 1; i < arr.length; i++) {
+    if (error) {
+      str = "Error";
+      arr = [];
+      updateBar();
+      break;
     }
 
     if (!isNaN(arr[i + 1])) {
@@ -87,48 +74,13 @@ function calculate() {
       } else if (arr[i] === ".") {
         i++;
         calc += Number("0." + arr[i]);
-      } 
+      }
     }
   }
 
   arr = [calc];
   str = String(calc);
   updateBar();
-        if (!isNaN(arr[i + 1]))
-        {   
-            if (arr[i] === "+") 
-            {
-                i++;
-                calc += arr[i];
-            }
-            else if (arr[i] === "-")
-            {
-                i++;
-                calc -= arr[i];
-            }
-            else if (arr[i] === "x")
-            {
-                i++;
-                calc *= arr[i]
-            }
-            else if (arr[i] === "÷")
-            {
-                i++;
-                calc /= arr[i];
-            }
-            else if (arr[i] === ".")
-            {
-                i++;
-                calc += Number("0." + arr[i]);
-            }
-        }
-    }
-    
-    arr = [calc];
-    str = String(calc);
-    console.log(calc);
-
-    updateBar();
 }
 
 function clearBar() {
